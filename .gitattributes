@@ -5,3 +5,6 @@
 *.cxx linguist-detectable=true
 *.c linguist-detectable=false
 *.h linguist-detectable=false
+*.cs linguist-detectable=false
+*.xaml linguist-detectable=false
+
