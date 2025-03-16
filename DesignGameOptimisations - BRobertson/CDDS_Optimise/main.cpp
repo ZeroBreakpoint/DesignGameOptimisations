@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     //SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
 
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     const int CRITTER_COUNT = 50;
     const int MAX_VELOCITY = 80;
@@ -31,14 +31,14 @@ int main(int argc, char* argv[])
     Texture2D* destroyerTexture = textureManager.LoadTexture("res/9.png");
 
     ObjectPool<Critter> critterPool(CRITTER_COUNT);
-    Critter* critters[CRITTER_COUNT];
+    Critter* critters[CRITTER_COUNT]{};
 
     // create some critters
     for (int i = 0; i < CRITTER_COUNT; i++)
     {
         critters[i] = critterPool.Get();
         // create a random direction vector for the velocity
-        Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
+        Vector2 velocity = { -100.0f + static_cast<float>(rand() % 200), -100.0f + static_cast<float>(rand() % 200) };
         // normalize and scale by a random speed
         velocity = Vector2Scale(Vector2Normalize(velocity), MAX_VELOCITY);
 
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     }
 
     Critter destroyer;
-    Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
+    Vector2 velocity = { -100.0f + static_cast<float>(rand() % 200), -100.0f + static_cast<float>(rand() % 200) };
     velocity = Vector2Scale(Vector2Normalize(velocity), MAX_VELOCITY);
     destroyer.Init(Vector2{ (float)(screenWidth >> 1), (float)(screenHeight >> 1) }, velocity, 20, destroyerTexture);
 
@@ -61,13 +61,6 @@ int main(int argc, char* argv[])
     int frameCounter = 0;
     float totalFrameTime = 0;
 
-    // Open log file
-    /*std::ofstream logFile("frametime_log_optimised.txt");
-    if (!logFile.is_open())
-    {
-        CloseWindow();
-        return -1;
-    }*/
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -90,7 +83,7 @@ int main(int argc, char* argv[])
             destroyer.SetVelocity(Vector2{ -destroyer.GetVelocity().x, destroyer.GetVelocity().y });
         }
         if (destroyer.GetX() > screenWidth) {
-            destroyer.SetX(screenWidth);
+            destroyer.SetX(static_cast<float>(screenWidth));
             destroyer.SetVelocity(Vector2{ -destroyer.GetVelocity().x, destroyer.GetVelocity().y });
         }
         if (destroyer.GetY() < 0) {
@@ -98,7 +91,7 @@ int main(int argc, char* argv[])
             destroyer.SetVelocity(Vector2{ destroyer.GetVelocity().x, -destroyer.GetVelocity().y });
         }
         if (destroyer.GetY() > screenHeight) {
-            destroyer.SetY(screenHeight);
+            destroyer.SetY(static_cast<float>(screenHeight));
             destroyer.SetVelocity(Vector2{ destroyer.GetVelocity().x, -destroyer.GetVelocity().y });
         }
 
@@ -114,7 +107,7 @@ int main(int argc, char* argv[])
                 critters[i]->SetVelocity(Vector2{ -critters[i]->GetVelocity().x, critters[i]->GetVelocity().y });
             }
             if (critters[i]->GetX() > screenWidth) {
-                critters[i]->SetX(screenWidth);
+                critters[i]->SetX(static_cast<float>(screenWidth));
                 critters[i]->SetVelocity(Vector2{ -critters[i]->GetVelocity().x, critters[i]->GetVelocity().y });
             }
             if (critters[i]->GetY() < 0) {
@@ -122,7 +115,7 @@ int main(int argc, char* argv[])
                 critters[i]->SetVelocity(Vector2{ critters[i]->GetVelocity().x, -critters[i]->GetVelocity().y });
             }
             if (critters[i]->GetY() > screenHeight) {
-                critters[i]->SetY(screenHeight);
+                critters[i]->SetY(static_cast<float>(screenHeight));
                 critters[i]->SetVelocity(Vector2{ critters[i]->GetVelocity().x, -critters[i]->GetVelocity().y });
             }
 

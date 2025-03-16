@@ -39,7 +39,7 @@ void Critter::Draw()
     if (m_isLoaded == false)
         return;
 
-    DrawTexture(*m_texture, m_position.x, m_position.y, WHITE);
+    DrawTexture(*m_texture, static_cast<int>(m_position.x), static_cast<int>(m_position.y), WHITE);
 }
 
 void Critter::Reset(Vector2 position, Vector2 velocity, float radius, Texture2D* texture)
