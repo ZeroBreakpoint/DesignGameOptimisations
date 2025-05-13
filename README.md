@@ -26,8 +26,6 @@ Added a singleton-like `TextureManager` that caches textures using an `unordered
 ### 3. **Quadtree Spatial Partitioning**
 Introduced a custom QuadTree class for spatial partitioning and efficient collision detection:
 
-Reduces O(n²) collision checks to O(n log n + k), where k is the number of local collisions.
-
-Dynamically subdivides space and queries nearby critters only.
-
-Greatly improves frame rate stability.
+- Reduces O(n²) collision checks to O(n log n + k), where k is the number of local collisions.
+- Dynamically subdivides space and queries nearby critters only.
+- Greatly improves frame rate stability.
