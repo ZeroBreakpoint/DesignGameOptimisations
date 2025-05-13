@@ -178,11 +178,13 @@
   <ItemGroup>
     <ClCompile Include="Critter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="QuadTree.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Critter.h" />
     <ClInclude Include="ObjectPool.h" />
+    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
