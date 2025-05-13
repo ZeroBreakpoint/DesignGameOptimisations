@@ -1,7 +1,6 @@
 # DesignGameOptimisations
 
-This is my optimised version of a C++ raylib game featuring an octopus destroyer and multiple autonomous critters.  The project was originally provided as an unoptimised baseline.  The performance has improved significantly over the original provided project, I was able to acheive the optimisation by using object pooling, a texture resource manager and a spatial partitioning system (quadtree).  These changes adhere to both the performance and modularity requirements of the original design brief.
-A copy of the original unoptimised project can be found here under CDDS_Optimise: https://github.com/AcademyOfInteractiveEntertainment/AIEYear1Samples
+This is my optimised version of a C++ raylib game featuring an octopus destroyer and multiple autonomous critters.  The project was originally provided as an unoptimised baseline.  The performance has improved significantly over the original provided project, I was able to acheive the optimisation by using object pooling, a texture resource manager and a spatial partitioning system (quadtree).  These changes adhere to both the performance and modularity requirements of the original design brief.  A copy of the original unoptimised project can be found here under CDDS_Optimise: https://github.com/AcademyOfInteractiveEntertainment/AIEYear1Samples
 
 ## Optimisations Implemented
 
